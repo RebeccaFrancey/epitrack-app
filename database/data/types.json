@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "type": "Pre Seizure",
+        "created_at": "2023-04-29 15:41:00",
+        "updated_at": "2023-04-29 15:41:00"
+    },
+
+    {
+        "id": 2,
+        "type": "SEIZURE",
+        "created_at": "2023-04-29 15:41:00",
+        "updated_at": "2023-04-29 15:41:00"
+    },
+
+    {
+        "id": 3,
+        "type": "Post Seizure",
+        "created_at": "2023-04-29 15:41:00",
+        "updated_at": "2023-04-29 15:41:00"
+    }
+]
