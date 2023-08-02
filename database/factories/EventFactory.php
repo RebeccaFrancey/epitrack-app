@@ -18,6 +18,7 @@ class EventFactory extends Factory
     {
         return [
         'user_id'=>1,
+        'category'=>$this->faker->word(),
         'duration'=>$this->faker->randomDigitNotNull(),
         'awake_asleep'=>$this->faker->boolean(),
         'severity'=>$this->faker->word(),
@@ -29,7 +30,8 @@ class EventFactory extends Factory
         'vomit'=>$this->faker->boolean(),
         'responsive'=>$this->faker->boolean(),
         'chewing'=>$this->faker->boolean(),
-        'description'=>$this->faker->text($maxNbChars = 200)
+        'description'=>$this->faker->text($maxNbChars = 200),
+        'image_path'=>$this->faker->imageUrl($width = 640, $height = 480),
         ];
     }
 }
