@@ -69,9 +69,9 @@
                 <p class="mt-6 whitespace-pre-wrap">{{$event->description}}</p>
                 <p class="mt-6 text-lg font-bold whitespace-pre-wrap">Media:</p>
 
-                {{-- <div class="mt-2">
-                    <img src="{{$event->media_path}}" alt="image url: {{$event->media_path}}">
-                </div> --}}
+                <div class="mt-2">
+                    <img src="{{$event->image_path}}" alt="image url: {{$event->image_path}}">
+                </div>
 
             </div>
         </div>

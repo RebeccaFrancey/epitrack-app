@@ -14,16 +14,16 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        // Event::factory(5)->create();
+        Event::factory(2)->create();
 
-        DB::table('events')->insert([
-            ["category" => "Seizure"],
-            ["category" => "Seizure"],
-            ["category" => "Seizure"],
-            ["category" => "Pre Seizure"],
-            ["category" => "Seizure"],
-            ["category" => "Post Seizure"],
-            ["category" => "Seizure"],
-        ]);
+        // DB::table('events')->insert([
+        //     ["category" => "Seizure"],
+        //     ["category" => "Seizure"],
+        //     ["category" => "Seizure"],
+        //     ["category" => "Pre Seizure"],
+        //     ["category" => "Seizure"],
+        //     ["category" => "Post Seizure"],
+        //     ["category" => "Seizure"],
+        // ]);
     }
 }

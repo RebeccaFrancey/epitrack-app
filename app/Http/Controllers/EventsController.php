@@ -99,4 +99,14 @@ class EventsController extends Controller
         return to_route('events.index')->with('success', 'Deleted successfully');
     }
 
+    public function __invoke(Request $request)
+    {
+        $results = [];
+        if ($query = $request->get('query'))
+        {
+            $results = DogProfile::search($query)->get();
+        }
+        return view('events.index', compact('results'));
+    }
+
 }

@@ -25,6 +25,7 @@ class Event extends Model
         'responsive',
         'chewing',
         'description',
+        'image_path',
     ];
 
     public function user(){
