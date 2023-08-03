@@ -30,7 +30,7 @@ class EventsController extends Controller
         return view('events.show')->with('event', $event);
     }
 
-    public function create(Event $event, Type $type): View
+    public function create(Event $event): View
     {
         return view('events.create')->with('event', $event);
     }
@@ -97,6 +97,11 @@ class EventsController extends Controller
         // $event->dogProfiles()->detach();
         $event->forceDelete();
         return to_route('events.index')->with('success', 'Deleted successfully');
+    }
+
+    public function timer(Event $event): View
+    {
+        return view('events.timer');
     }
 
     public function __invoke(Request $request)

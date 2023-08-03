@@ -16,9 +16,15 @@
     @can('is_owner')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            @if(request()->routeIs('events.index'))
-                <a href="{{route('events.create')}}" class="btn-link btn-lg mb-2">+ New Event</a>
-            @endif
+            <div class="justify-center">
+                @if(request()->routeIs('events.index'))
+                    <a href="{{route('events.create')}}" class="btn-link btn-lg mb-2">+ New Event</a>
+                    {{-- <a href="{{route('events.create')}}" class="btn-timer btn-lg mb-2 place-content-center">+ New Event</a> --}}
+                @endif
+                @if(request()->routeIs('events.index'))
+                    <a href="{{route('events.index')}}" class="btn-timer btn-lg mb-2 object-center">TIMER</a>
+                @endif
+            </div>
             @forelse ($events as $event)
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg text-center">
                 <h2 class="font-bold text-2xl">

@@ -3,7 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DogProfilesController;
 use App\Http\Controllers\EventsController;
-use App\Http\Contorllers\MediaController;
+use App\Http\Controllers\MediaController;
+use App\Http\Controllers\TimerController;
 // use App\Http\Cpntrollers\SearchController;
 use Barryvdh\Dubugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/media', MediaController::class);
     Route::resource('/events', EventsController::class);
-    Route::resource('/types', TypesController::class);
+    Route::resource('/timer', TimerController::class);
     Route::resource('/dogProfiles', DogProfilesController::class);
 });
 

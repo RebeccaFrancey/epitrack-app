@@ -101,6 +101,14 @@
                         placeholder="Type any further information here..."
                         class="w-full mt-6">{{@old('description')}}</textarea>
 
+                    <span class="mt-2 text-base leading-normal"> Add image </span>
+                    <input
+                        type="file"
+                        name="image_filename"
+                        class="hidden"
+                        id="inputImage"
+                        accept="image/*">
+
                     <button class="mt-6 inline-flex items-center px-4 py-2 bg-gray-400 hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 border rounded-md">Save Event</button>
                 </form>
             </div>
