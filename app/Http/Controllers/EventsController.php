@@ -152,6 +152,13 @@ class EventsController extends Controller
             return abort(403);
         }
 
+        $destinationPath = 'public/uploads/';
+        $image = $destinationPath.$event->image_filename;
+        if(Storage::exists($image))
+        {
+            Storage::delete($image);
+        }
+
         // $event->dogProfiles()->detach();
         $event->forceDelete();
         return to_route('events.index')->with('success', 'Deleted successfully');
