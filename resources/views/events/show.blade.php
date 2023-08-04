@@ -70,6 +70,9 @@
                 <p class="mt-6 text-lg font-bold whitespace-pre-wrap">Media:</p>
 
                 <div class="mt-2">
+                    <img src="{{url('storage/uploads/'.$event->image_filename)}}" alt="image url: {{$event->image_filename}}">
+                </div>
+                <div class="mt-2">
                     <img src="{{$event->image_path}}" alt="image url: {{$event->image_path}}">
                 </div>
 
