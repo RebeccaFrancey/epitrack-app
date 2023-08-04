@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
-                <form action="{{route('events.store')}}" method="post">
+                <form action="{{route('events.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     {{-- <p>Select tpye of event</p>
                     <select name="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -103,7 +103,7 @@
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Image</label>
-                        <input type="file" class="form-control" id="image" placeholder="Image" name="image">
+                        <input type="file" class="form-control" id="image_filename" placeholder="Image" name="image_filename">
                     </div>
                     {{-- <button type="submit">Save Image</button> --}}
 
