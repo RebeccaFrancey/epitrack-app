@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
-                <form action="{{route('events.update', $event)}}" method="post">
+                <form action="{{route('events.update', $event)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     {{-- <p>Select tpye of event</p>
@@ -101,6 +101,11 @@
                         field="text"
                         {{-- placeholder="Type any further information here..." --}}
                         class="w-full mt-6">{{$event->description}}</textarea>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Update Image</label>
+                        <input type="file" class="form-control" id="image_filename" placeholder="Image" name="image_filename">
+                    </div>
 
                     <button type="submit" class="mt-6 inline-flex items-center px-4 py-2 bg-gray-400 hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 border rounded-md">Save Changes</button>
                 </form>

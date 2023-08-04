@@ -128,21 +128,41 @@ class EventsController extends Controller
             return abort(403);
         }
 
-        $event->update([
-            'category' => $request->category,
-            'duration' => $request->duration,
-            'awake_asleep' => $request->awake_asleep == 'on' ? 1 : 0,
-            'severity' => $request->severity,
-            'emergency_med' => $request->emergency_med == 'on' ? 1 : 0,
-            'body' => $request->body == 'on' ? 1 : 0,
-            'movement' => $request->movement == 'on' ? 1 : 0,
-            'mouth' => $request->mouth == 'on' ? 1 : 0,
-            'bladder' => $request->bladder == 'on' ? 1 : 0,
-            'vomit' => $request->vomit == 'on' ? 1 : 0,
-            'responsive' => $request->responsive == 'on' ? 1 : 0,
-            'chewing' => $request->chewing == 'on' ? 1 : 0,
-            'description' => $request->description,
-        ]);
+        // $event->update([
+        //     'category' => $request->category,
+        //     'duration' => $request->duration,
+        //     'awake_asleep' => $request->awake_asleep == 'on' ? 1 : 0,
+        //     'severity' => $request->severity,
+        //     'emergency_med' => $request->emergency_med == 'on' ? 1 : 0,
+        //     'body' => $request->body == 'on' ? 1 : 0,
+        //     'movement' => $request->movement == 'on' ? 1 : 0,
+        //     'mouth' => $request->mouth == 'on' ? 1 : 0,
+        //     'bladder' => $request->bladder == 'on' ? 1 : 0,
+        //     'vomit' => $request->vomit == 'on' ? 1 : 0,
+        //     'responsive' => $request->responsive == 'on' ? 1 : 0,
+        //     'chewing' => $request->chewing == 'on' ? 1 : 0,
+        //     'description' => $request->description,
+        // ]);
+        $event->category=$request->input('category');
+        $event->duration=$request->input('duration');
+        $event->awake_asleep=$request->input('awake_asleep') == 'on' ? 1 : 0;
+        $event->severity=$request->input('severity');
+        $event->emergency_med=$request->input('emergency_med') == 'on' ? 1 : 0;
+        $event->body=$request->input('body') == 'on' ? 1 : 0;
+        $event->movement=$request->input('movement') == 'on' ? 1 : 0;
+        $event->mouth=$request->input('mouth') == 'on' ? 1 : 0;
+        $event->bladder=$request->input('bladder') == 'on' ? 1 : 0;
+        $event->vomit=$request->input('vomit') == 'on' ? 1 : 0;
+        $event->responsive=$request->input('responsive') == 'on' ? 1 : 0;
+        $event->chewing=$request->input('chewing') == 'on' ? 1 : 0;
+        $event->description=$request->input('description');
+        if ($request->has('image_filename'))
+        {
+            $event->image_filename=$this->storeImage($request);
+        }
+
+        $event->update();
+
         return to_route('events.show', $event);
     }
 
