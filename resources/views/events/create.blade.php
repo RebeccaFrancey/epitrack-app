@@ -22,7 +22,7 @@
                         <option value="Post Seizure" @selected($event->category=='Post Seizure')>Post Seizure</option>
                     </select>
 
-                    <p class="pt6-6">Duration of event in minutes</p>
+                    <p class="pt-6">Duration of event in minutes</p>
                     <input
                         type="text"
                         name="duration"
@@ -101,16 +101,30 @@
                         placeholder="Type any further information here..."
                         class="w-full mt-6">{{@old('description')}}</textarea>
 
-                    <span class="mt-2 text-base leading-normal"> Add image </span>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" placeholder="Image" name="image">
+                    </div>
+                    {{-- <button type="submit">Save Image</button> --}}
+
+                    {{-- <span class="mt-2 text-base leading-normal"> Add image </span>
                     <input
                         type="file"
                         name="image_filename"
                         class="hidden"
                         id="inputImage"
-                        accept="image/*">
+                        accept="image/*"> --}}
 
                     <button class="mt-6 inline-flex items-center px-4 py-2 bg-gray-400 hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 border rounded-md">Save Event</button>
                 </form>
+                {{-- <form method="POST" action="{{route('events.store')}}" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <label for="name" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="image" placeholder="Image" name="image">
+                </div>
+                <button type="submit">Save</button>
+                </form> --}}
             </div>
 
 

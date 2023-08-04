@@ -26,6 +26,7 @@ class Event extends Model
         'chewing',
         'description',
         'image_path',
+        'image_filename'
     ];
 
     public function user(){

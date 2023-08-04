@@ -51,6 +51,7 @@ class EventsController extends Controller
             'responsive' => $request->responsive == 'on' ? 1 : 0,
             'chewing' => $request->chewing == 'on' ? 1 : 0,
             'description' => $request->description,
+            'image_filename'=>$request->image_filename,
         ]);
         return to_route('events.index');
     }
