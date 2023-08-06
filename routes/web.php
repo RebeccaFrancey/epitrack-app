@@ -5,6 +5,8 @@ use App\Http\Controllers\DogProfilesController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\TimerController;
+use App\Http\Controllers\ShareEmailController;
+use App\Http\Mail\SendEventMail;
 // use App\Http\Cpntrollers\SearchController;
 use Barryvdh\Dubugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +30,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/email', function () {
+    return new SendEventMail();
+});
+// Route::post('/events', [EventsController::class, 'share'])->name('events.share');
+
 // Route::get('/search', SearchController::class);
 
 Route::middleware('auth')->group(function () {
@@ -39,6 +46,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('/events', EventsController::class);
     Route::resource('/timer', TimerController::class);
     Route::resource('/dogProfiles', DogProfilesController::class);
+    // Route::post('share/{$event}', ShareEmailController::class)->name('share');
+    Route::post('/', [ShareEmailController::class, '__invoke'])->name('share');
+    // Route::post('/events', [EventsController::class, 'share'])->name('events.share');
+    // Route::post('/events', [EventsController::class, 'store'])->name('events.store');
 });
 
 require __DIR__.'/auth.php';

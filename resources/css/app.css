@@ -11,6 +11,10 @@
         @apply inline-block px-4 py-2 bg-green-600 rounded-md font-bold text-sm text-white uppercase tracking-widest hover:bg-green-800 active:bg-green-900 focus:ring ring-green-300;
     }
 
+    .btn-share {
+        @apply inline-block px-4 py-2 bg-fuchsia-600 rounded-md font-bold text-sm text-white uppercase tracking-widest hover:bg-fuchsia-800 active:bg-fuchsia-900 focus:ring ring-fuchsia-300;
+    }
+
     .btn-lg {
         @apply px-6 py-3;
     }

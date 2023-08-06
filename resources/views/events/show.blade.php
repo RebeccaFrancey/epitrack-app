@@ -32,6 +32,20 @@
                     <button type="submit" class="btn btn-danger ml-4" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
                 </form>
             </div>
+
+            <div class="my-6 mx-10 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
+                <form action="{{route('share', $event)}}" method="post">
+                    @csrf
+                    Share this event as an email to: <select name="user" id="user">
+                        @if ($users instanceof Illuminate\Database\Eloquent\Collection)
+                        @foreach ($users as $user)
+                            <option value="{{$user->id}}" {{Auth::id() == $user->id ? 'selected=""': '' }}>{{$user->name}}</option>
+                        @endforeach
+                        @endif
+                    </select>
+                    <button type="submit" class="btn-share ml-auto">Share Event</button>
+                </form>
+            </div>
             @endcan
 
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">

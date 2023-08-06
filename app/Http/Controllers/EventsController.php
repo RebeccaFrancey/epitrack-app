@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Mail;
 use Intervention\Image\Facades\Image;
 use App\Models\Event;
 use App\Models\DogProfile;
+use App\Models\User;
+use App\Mail\SendEventMail;
 
 
 class EventsController extends Controller
@@ -26,11 +29,12 @@ class EventsController extends Controller
 
     public function show(string $id)
     {
+        $users = User::all()->except(Auth::id()); //somehow add ->where('role' == 'vet')
         $event = Event::where('id',$id)
         ->where('user_id', Auth::id())
         ->firstOrFail();
 
-        return view('events.show')->with('event', $event);
+        return view('events.show')->with('event', $event)->with('users', $users);
     }
 
     public function create(Event $event): View
@@ -198,5 +202,16 @@ class EventsController extends Controller
         }
         return view('events.index', compact('results'));
     }
+
+    // public function share(Event $event, Request $request)
+    // {
+    //     // return new SendEventMail($event,$request->user);
+    //     $user = User::findOrFail($request->user);
+    //     Mail::to($user->emial)
+    //     ->cc(Auth::user()->email)
+    //     ->send(new SnedEventMail($event,$user));
+
+    //     return to_route('event.show', $event)->with('success', 'Event shared via email');
+    // }
 
 }
