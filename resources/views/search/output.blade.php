@@ -1,14 +1,14 @@
-{{-- <x-app-layout>
+<x-app-layout>
     <x-slot name="header">
         @can('is_owner')
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Events') }}
+            {{ __('Error - vet users only') }}
         </h2>
         @endcan
 
         @can('is_vet')
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Home') }}
+            {{ __('Search') }}
         </h2>
         @endcan
     </x-slot>
@@ -34,4 +34,4 @@
         </div>
     </div>
     @endcan
-</x-app-layout> --}}
+</x-app-layout>
