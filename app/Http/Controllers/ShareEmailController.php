@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Event;
+use App\Models\User;
 use App\Mail\SendEventMail;
 
 class ShareEmailController extends Controller
 {
-    public function share(Event $event, Request $request)
+    public function __invoke(Event $event, Request $request)
     {
         // return new SendEventMail($event,$request->user);
         $user = User::findOrFail($request->user);

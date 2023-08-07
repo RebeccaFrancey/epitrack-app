@@ -33,6 +33,7 @@
                 @endcan
             </div>
 
+            @can('is_owner')
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -58,6 +59,15 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+            @endcan
+
+            @can('is_vet')
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <x-nav-link :href="route('dogProfiles.index')" :active="request()->routeIs('dogProfiles.index')">
+                    {{ __('My Patients') }}
+                </x-nav-link>
+            </div>
+            @endcan
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">

@@ -33,6 +33,7 @@ Route::get('/dashboard', function () {
 Route::get('/email', function () {
     return new SendEventMail();
 });
+// Route::get('share/{event}', [ShareEmailController::class, '__invoke'])->name('share');
 // Route::post('/events', [EventsController::class, 'share'])->name('events.share');
 
 // Route::get('/search', SearchController::class);
@@ -47,9 +48,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('/timer', TimerController::class);
     Route::resource('/dogProfiles', DogProfilesController::class);
     // Route::post('share/{$event}', ShareEmailController::class)->name('share');
-    Route::post('/', [ShareEmailController::class, '__invoke'])->name('share');
+    Route::get('share/{event}', [ShareEmailController::class, '__invoke'])->name('share');
     // Route::post('/events', [EventsController::class, 'share'])->name('events.share');
-    // Route::post('/events', [EventsController::class, 'store'])->name('events.store');
+    // Route::post('/events', [EventsController::class, 'store'])->name('events.store'); //can't have 2 post requests to same url!
+
 });
 
 require __DIR__.'/auth.php';

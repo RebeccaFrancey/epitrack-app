@@ -11,6 +11,16 @@ use App\Models\DogProfile;
 
 class DogProfilesController extends Controller
 {
+    public function index()
+    {
+        $userId= Auth::id();
+        $dogProfiles= DogProfile::where('user_id', $userId)
+        ->latest('created_at')
+        ->get();
+
+        return view('dogProfiles.index')->with('dogProfiles', $dogProfiles);
+    }
+
     public function show(string $id)
     {
         $dogProfile = DogProfile::where('id',$id)
