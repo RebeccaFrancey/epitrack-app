@@ -19,6 +19,13 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <form action="{{url('/search')}}" method="GET" class="space-y-2 mb-6">
+                        <div class="flex items-baseline space-x-2">
+                        <select name="user_id" id="user_id">
+                            <option value="">Any User</option>
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}" {{request()->get('user_id') == $user->id ? 'selected=""':''}}>{{$user->name}}</option>
+                            @endforeach
+                        </select>
                         <input
                             id="query"
                             name="query"
@@ -26,13 +33,13 @@
                             placeholder="Search events..."
                             class="block w-full"
                             />
-
+                        </div>
                         <button class="mt-6 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Search</button>
                     </form>
-                    <div class="space-y-4">
-                        {{-- @if (!empty($results))
+                    {{-- <div class="space-y-4"> --}}
+                        @if (!empty($results))
                             <em>Found {{$results->total()}} Events</em>
-                        @endif --}}
+                        @endif
                         {{-- @forelse ($results as $result)
                         <div class="text-lg font-semibold">
                             <a href="{{route('dogProfiles.show', $result)}}">{{$result->name}}</a>
@@ -49,7 +56,7 @@
                         @empty
                             No events found.
                         @endforelse
-                    </div>
+                    {{-- </div> --}}
                 </div>
             </div>
         </div>

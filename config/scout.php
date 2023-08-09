@@ -134,8 +134,11 @@ return [
         'key' => env('MEILISEARCH_KEY'),
         'index-settings' => [
             Event::class => [
-                'filterableAttributes'=> [ 'category'],
+                'filterableAttributes'=> ['user_id', 'category'],
             ],
+            // User::class => [
+            //     'filterableAttributes'=> [ 'name', 'id'],
+            // ],
             // DogProfile::class => [
             //     'filterableAttributes'=> [ 'name', 'number'],
             // ],

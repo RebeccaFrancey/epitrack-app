@@ -48,6 +48,13 @@
             </div>
             @endcan
 
+            @can('is_vet')
+            <div class="flex items-center">
+                <a href="{{route ('events.showPdf', $event->id)}}" class="btn-link ml-auto">Export to PDF</a>
+                {{-- <a href="{{URL::to('pdf')}}" class="btn-link ml-auto">Export to PDF</a> --}}
+            </div>
+            @endcan
+
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                 <h2 class="font-bold text-4xl text-center">
                     EVENT: {{$event->category}}

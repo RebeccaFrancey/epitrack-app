@@ -31,6 +31,20 @@ class Event extends Model
         'image_filename'
     ];
 
+    public function searchableAs(): string
+    {
+        return 'events';
+    }
+
+    public function toSearchableArray()
+    {
+        return[
+            'category' => $this->category,
+            'user_id' => $this->user_id,
+            'severity' => $this->severity,
+        ];
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

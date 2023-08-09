@@ -14,7 +14,7 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        Event::factory(2)->create();
+        Event::factory(3)->create();
 
         // DB::table('events')->insert([
         //     ["category" => "Seizure"],

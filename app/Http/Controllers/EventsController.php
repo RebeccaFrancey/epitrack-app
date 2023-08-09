@@ -13,6 +13,7 @@ use App\Models\Event;
 use App\Models\DogProfile;
 use App\Models\User;
 use App\Mail\SendEventMail;
+use PDF;
 
 
 class EventsController extends Controller
@@ -27,12 +28,17 @@ class EventsController extends Controller
         return view('events.index')->with('events', $events);
     }
 
-    public function show(string $id)
+    public function show(Request $request,string $id)
     {
         $users = User::all()->except(Auth::id()); //somehow add ->where('role' == 'vet')
         $event = Event::where('id',$id)
-        ->where('user_id', Auth::id())
         ->firstOrFail();
+
+        if ($request->has('download'))
+        {
+            $pdf = PDF::loadView('events.sample', $event);
+            return $pdf->download('pdf_example.pdf');
+        }
 
         return view('events.show')->with('event', $event)->with('users', $users);
     }
@@ -213,5 +219,37 @@ class EventsController extends Controller
 
     //     return to_route('event.show', $event)->with('success', 'Event shared via email');
     // }
+
+    // public function showPdf(string $id)
+    // {
+    //     $event = Event::where('id', $id)->firstOrFail();
+    //     return view('sample', compact('event'));
+    // }
+
+    // public function createPDF(Event $event)
+    // {
+    //     // $data = Event::where('id', $id)->firstOrFail();
+    //     // view()->share('event', $data);
+    //     // $pdf = PDF::loadView('pdf_view', $data);
+    //     // return $pdf->download('pdf_file.pdf');
+    //     view()->share('event', $event);
+    //     $pdf = PDF::loadView('pdf_view', $event);
+    //     return $pdf->download('pdf_file.pdf');
+    // }
+
+    public function showPdf(string $id, Request $request)
+    {
+        $event = Event::where('id', $id)->firstOrFail();
+        $data = [
+            'title' => 'Test PDF',
+            'event' => $event
+        ];
+        if ($request->has('download'))
+        {
+            $pdf = PDF::loadView('sample', $data);
+            return $pdf->download('event_log.pdf');
+        }
+        return view('sample', compact('event'));
+    }
 
 }

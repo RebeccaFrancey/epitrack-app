@@ -7,6 +7,7 @@ use App\Http\Controllers\MediaController;
 use App\Http\Controllers\TimerController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShareEmailController;
+use App\Http\Controllers\PdfController;
 use App\Http\Mail\SendEventMail;
 use Barryvdh\Dubugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('/dogProfiles', DogProfilesController::class);
     Route::get('share/{event}', [ShareEmailController::class, '__invoke'])->name('share');
     Route::get('/search', [SearchController::class, '__invoke']);
+    Route::get('/event/pdf', [EventsController::class, 'createPDF']);
+    Route::get('pdf', [PdfController::class, 'index']);
+    Route::get('/events/{id}/pdf', [EventsController::class, 'showPdf'])->name('events.showPdf');
     // Route::post('share/{$event}', ShareEmailController::class)->name('share');
     // Route::post('/events', [EventsController::class, 'share'])->name('events.share');
     // Route::post('/events', [EventsController::class, 'store'])->name('events.store'); //can't have 2 post requests to same url!
