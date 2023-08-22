@@ -17,7 +17,7 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-        'user_id'=>4,
+        'user_id'=>6,
         'category'=>$this->faker->word(),
         'duration'=>$this->faker->randomDigitNotNull(),
         'awake_asleep'=>$this->faker->boolean(),

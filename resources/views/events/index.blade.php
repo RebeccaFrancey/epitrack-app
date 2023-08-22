@@ -29,6 +29,7 @@
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg text-center">
                 <h2 class="font-bold text-2xl">
                     <a href="{{route('events.show', $event)}}">Event: {{$event->category}}</a>
+                    {{-- <a href="{{route('events.show', $event)}}">Event: {{$event->category}}</a> --}}
                 </h2>
                 <span class="block mt-4 text-sm opacity-70">{{$event->created_at->toDayDateTimeString()}}</span>
             </div>

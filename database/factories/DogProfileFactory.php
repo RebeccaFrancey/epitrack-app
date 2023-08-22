@@ -17,7 +17,7 @@ class DogProfileFactory extends Factory
     public function definition(): array
     {
         return [
-        'user_id'=>1,
+        'user_id'=>6,
         'name'=>$this->faker->firstName($gender='male'|'female'),
         'age'=>$this->faker->randomDigitNotNull(),
         'sex'=>$this->faker->boolean(),

@@ -213,9 +213,9 @@ class EventsController extends Controller
     // {
     //     // return new SendEventMail($event,$request->user);
     //     $user = User::findOrFail($request->user);
-    //     Mail::to($user->emial)
+    //     Mail::to($user->email)
     //     ->cc(Auth::user()->email)
-    //     ->send(new SnedEventMail($event,$user));
+    //     ->send(new SendEventMail($event,$user));
 
     //     return to_route('event.show', $event)->with('success', 'Event shared via email');
     // }
@@ -247,7 +247,7 @@ class EventsController extends Controller
         if ($request->has('download'))
         {
             $pdf = PDF::loadView('sample', $data);
-            return $pdf->download('event_log.pdf');
+            return $pdf->download('sample.pdf');
         }
         return view('sample', compact('event'));
     }

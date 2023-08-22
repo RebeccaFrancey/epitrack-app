@@ -1,5 +1,5 @@
 <?php
-
+//This was provided by Breeze
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;

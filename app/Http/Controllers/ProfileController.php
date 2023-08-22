@@ -1,5 +1,5 @@
 <?php
-
+//This was provided by Breeze
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;

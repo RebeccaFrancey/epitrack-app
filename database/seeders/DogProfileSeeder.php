@@ -13,6 +13,6 @@ class DogProfileSeeder extends Seeder
      */
     public function run(): void
     {
-        DogProfile::factory(10)->create();
+        DogProfile::factory(1)->create();
     }
 }

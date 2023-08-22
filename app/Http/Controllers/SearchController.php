@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use App\Models\DogProfile;
 use App\Models\Event;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class SearchController extends Controller
 {
@@ -31,7 +32,10 @@ class SearchController extends Controller
 
     public function __invoke(Request $request)
     {
-        $users = User::all();
+        // $users = User::all()->except(Auth::id());
+        $users = User::all()->where('role', 'owner');
+        // $users = User::role('owner')->get();
+        // $users = User::whereHas('role', function($q){$q->where('name', 'owner');})->get();
         $results = [];
         if ($query = $request->get('query'))
         {

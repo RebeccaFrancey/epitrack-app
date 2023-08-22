@@ -52,6 +52,7 @@
                         <div class="text-lg font-semibold">
                             <a href="{{route('events.show', $result)}}">{{$result->category}}</a>
                         </div>
+                        <p>{{$result->user->name}}</p>
                         <p>{!!html_entity_decode(Str::limit($result->created_at->toDayDateTimeString())) !!}</p>
                         @empty
                             No events found.

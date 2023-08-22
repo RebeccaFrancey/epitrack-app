@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\EventType;
 use App\Models\User;
 
-class EventSeizure extends Model
+class Event1 extends Model
 {
     use HasFactory;
 

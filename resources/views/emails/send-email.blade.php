@@ -7,7 +7,7 @@
 
 *Event: **{{$event->category}}**
 *Severity: {{$event->severity}}<br>
-![alt text]({{config('app.url')}}/storage/uploads/{{$event->image_filname}} "thumbnail view of {{$event->category}}")
+{{-- ![alt text]({{config('app.url')}}/storage/uploads/{{$event->image_filname}} "thumbnail view of {{$event->category}}") --}}
 
 [Log in to {{config('app.name')}} to see more]({{config('app.url')}} "Log it to {{config('app.name')}} to see more")
 

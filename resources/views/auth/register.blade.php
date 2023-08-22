@@ -16,6 +16,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        {{-- added by RF: --}}
         <div class="mt-4">
             <x-input-label for="role" :value="__('Are you a dog owner or vet?')" />
             <select class="block mt-1 w-full" name="role">
